@@ -1,73 +1,87 @@
-# call-python-from-cpp
+Call python API from Cpp. 
 
-Example Code of Calling Python from C++,
-following the instruction
-<a href="https://pybind11.readthedocs.io/en/stable/advanced/embedding.html"><i>Embedding the Interpreter</i></a>.
+There are many demos/examples show how to call Cpp API from Python. But very few are talking about the other way, call Python API from Cpp. Although Python is slow when compared to Cpp, it has little difference when using Python to run DL models as most of calculations are done within the model and not related to Python. Since it's easier to run DL models in Python, it's possible to setup DL runing environment in Python and simply call the Python API from Cpp to make the job done. 
 
-## Installation
+In this repo, we provide several demos representing different scenarios when calling Python API from Cpp:
 
-```bash
-# for example_001 - example_003
-sudo python3 -m pip install numpy
-sudo python3 -m pip install scipy
+  //////////////////// 
+  // Demo 1: 
+  // exacuate a simple inline python function in cpp
+  ///////////////////
 
-# for example_004
-sudo python3 -m pip install opencv-python
-sudo python3 -m pip install chainer
-sudo python3 -m pip install chainercv
-sudo python3 -m pip install imgviz
-sudo python3 -m pip install pyglet
-sudo python3 -m pip install cupy-cuda101     # CUDA10.1, cupy-cuda92 for 9.2
-```
+  //////////////////// 
+  // Demo 2: 
+  // import python packages installed in the system
+  ///////////////////
 
-```bash
-mkdir build
-cd build
+  //////////////////// 
+  // Demo 3: 
+  // -import a self made function in python 
+  // -scalar as arguments, pass forth and back 
+  ///////////////////
 
-cmake ..
-make
-```
+  //////////////////// 
+  // Demo 4: 
+  // -import a self made function in python
+  // -string as arguments, pass forth and back 
+  ///////////////////
 
 
-## Examples
+	////////////////////////
+	// Demo 5: pass a cv Mat to python API, 2D and 3D; 
+	// - data flow: cv mat -->numpy-->pyapi-->return int numpy --> cv mat 
+	// - 2D and 3D; 
+	// - return unsigned int mat
+	////////////////////////
+ 
 
-### Hello World! ([src/example_001.cpp](src/example_001.cpp))
+	////////////////////////
+	// Demo 6: pass a cv Mat to python API, 2D; 
+	// - data flow: cv mat -->numpy-->pyapi-->return int numpy --> cv mat 
+	// - 2D; 
+	// - return float mat
+	////////////////////////
+ 
 
-```bash
-$ cd build
-$ ./example_001
-Hello, World!
-```
+	////////////////////////
+	// Demo 7: read an img in cpp with cv and pass the img to DL model (face detection) in python; 
+	// - data flow: cv mat img -->numpy-->pyapi--> face detection
+	// 
+	////////////////////////
 
-### Import SciPy ([src/example_002.cpp](src/example_002.cpp))
+To embedding the Python interpreter, the Pybind11 package is used ( it's located in the sub-folder 'pyind11').  
 
-```bash
-$ cd build
-$ ./example_002
-sys version: 3.5.2 (default, Nov 12 2018, 13:43:14) 
-[GCC 5.4.0 20160609]
-scipy version: 1.3.0
-```
+Requirements:
+	cmake
+	make
+	mediapipe (to run demo 5-7)
+	Python3
 
-### Communicate Numpy Array ([src/example_003.cpp](src/example_003.cpp))
 
-```bash
-$ cd build
-$ ./example_003
-shape: 768 1024 3
-ndim: 3
-==> Saved to: image.jpg
-```
+How to run the demos:
 
-<img src=".readme/example_003.jpg" height="300px"><br/>`image.jpg`
+0. git clone the repo;
 
-### Run Mask R-CNN ([src/example_004.cpp](src/example_004.cpp))
+1. expose the 'src' folder to the system so that the building process can find the source files. An example:
 
-```bash
-$ cd build
-$ ./example_004
-ndim: 3
-shape: (600, 956, 3, )
-```
+	export PYTHONPATH=$PYTHONPATH:/home/zhen/Projects/PyAPI4Cpp/call-python-from-cpp/src
 
-<img src=".readme/example_004.jpg" height="300px"><br/>`cv::imshow(...)`
+2. go to the build directory, (if not exist, create a 'build' folder under the './call-python-from-cpp'), do following:
+	cmake ..
+	make
+
+3. to run the demo_2.cpp, contains demo 5 to demo 7, as it need to run DL models, you need to install the 'mediapipe' from Google. Install the medianpipe in the system, not in python virtual environment. As if you install it on local python virtual environment, the building process will not be able to find it. 
+
+4. in build directory, run:
+./demo_1
+./demo_2
+
+
+
+ 
+
+
+
+
+
+ 
