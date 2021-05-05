@@ -4,27 +4,27 @@ There are many demos/examples show how to call Cpp API from Python. But very few
 
 In this repo, we provide several demos representing different scenarios when calling Python API from Cpp:
 
-  //////////////////// 
-  // Demo 1: 
-  // exacuate a simple inline python function in cpp
-  ///////////////////
+	  //////////////////// 
+	  // Demo 1: 
+	  // exacuate a simple inline python function in cpp
+	  ///////////////////
 
-  //////////////////// 
-  // Demo 2: 
-  // import python packages installed in the system
-  ///////////////////
+	  //////////////////// 
+	  // Demo 2: 
+	  // import python packages installed in the system
+	  ///////////////////
 
-  //////////////////// 
-  // Demo 3: 
-  // -import a self made function in python 
-  // -scalar as arguments, pass forth and back 
-  ///////////////////
+	  //////////////////// 
+	  // Demo 3: 
+	  // -import a self made function in python 
+	  // -scalar as arguments, pass forth and back 
+	  ///////////////////
 
-  //////////////////// 
-  // Demo 4: 
-  // -import a self made function in python
-  // -string as arguments, pass forth and back 
-  ///////////////////
+	  //////////////////// 
+	  // Demo 4: 
+	  // -import a self made function in python
+	  // -string as arguments, pass forth and back 
+	  ///////////////////
 
 
 	////////////////////////
@@ -73,7 +73,9 @@ How to run the demos:
 3. to run the demo_2.cpp, contains demo 5 to demo 7, as it need to run DL models, you need to install the 'mediapipe' from Google. Install the medianpipe in the system, not in python virtual environment. As if you install it on local python virtual environment, the building process will not be able to find it. 
 
 4. in build directory, run:
+5. 
 ./demo_1
+
 ./demo_2
 
 
