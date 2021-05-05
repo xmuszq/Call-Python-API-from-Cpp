@@ -52,10 +52,10 @@ In this repo, we provide several demos representing different scenarios when cal
 To embedding the Python interpreter, the Pybind11 package is used ( it's located in the sub-folder 'pyind11').  
 
 Requirements:
-	cmake
-	make
-	mediapipe (to run demo 5-7)
-	Python3
+		cmake
+		make
+		mediapipe (to run demo 5-7)
+		Python3
 
 
 How to run the demos:
@@ -74,9 +74,9 @@ How to run the demos:
 
 4. in build directory, run:
 5. 
-./demo_1
+	./demo_1
 
-./demo_2
+	./demo_2
 
 
 
