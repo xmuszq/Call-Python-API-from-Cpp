@@ -52,10 +52,12 @@ In this repo, we provide several demos representing different scenarios when cal
 To embedding the Python interpreter, the Pybind11 package is used ( it's located in the sub-folder 'pyind11').  
 
 Requirements:
+		
 		cmake
 		make
 		mediapipe (to run demo 5-7)
 		Python3
+
 
 
 How to run the demos:
@@ -73,9 +75,8 @@ How to run the demos:
 3. to run the demo_2.cpp, contains demo 5 to demo 7, as it need to run DL models, you need to install the 'mediapipe' from Google. Install the medianpipe in the system, not in python virtual environment. As if you install it on local python virtual environment, the building process will not be able to find it. 
 
 4. in build directory, run:
-5. 
 	./demo_1
-
+	or 
 	./demo_2
 
 
