@@ -68,12 +68,12 @@ How to run the demos:
 
 	export PYTHONPATH=$PYTHONPATH:/home/zhen/Projects/PyAPI4Cpp/call-python-from-cpp/src
 
-2. go to the build directory, (if not exist, create a 'build' folder under the './call-python-api-from-cpp'), do following:
+2. go to the build directory, (if not exist, create a 'build' folder under the './call-python-api-from-cpp'), then do following:
 
 		cmake ..
 		make
 
-3. to run the demo_2.cpp, contains demo 5 to demo 7, as it need to run DL models, you need to install the 'mediapipe' from Google. Install the medianpipe in the system, not in python virtual environment. As if you install it on local python virtual environment, the building process will not be able to find it. 
+3. to run the demo_2.cpp, containing demo 5 to demo 7, as it need to run DL models, you need to install the 'mediapipe' from Google. Install the medianpipe in the system, not in python virtual environment. As if you install it on local python virtual environment, the building process will not be able to find it. 
 
 4. in build directory, run:
 	./demo_1
